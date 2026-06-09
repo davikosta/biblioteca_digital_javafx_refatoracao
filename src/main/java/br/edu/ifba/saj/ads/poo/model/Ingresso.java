@@ -1,16 +1,16 @@
 package br.edu.ifba.saj.ads.poo.model;
 
 public class Ingresso {
-    private Sessao sessao;
+    private Autor autor;
     private float valor;
     private Cliente cliente;
     private TipoIngresso tipoIngresso;
-    public Ingresso(Sessao sessao) {
-        this.sessao = sessao;
+    public Ingresso(Autor autor) {
+        this.autor = autor;
     }    
 
-    public Ingresso(Sessao sessao, float valorIngresso) {
-        this.sessao = sessao;
+    public Ingresso(Autor autor, float valorIngresso) {
+        this.autor = autor;
         this.valor = valorIngresso;
     }
 
@@ -24,7 +24,7 @@ public class Ingresso {
 
     @Override
     public String toString() {
-        return "Ingresso [sessao=" + sessao + ", valor=" + valor + ", cliente=" + cliente + ", tipoIngresso="
+        return "Ingresso [sessao=" + autor + ", valor=" + valor + ", cliente=" + cliente + ", tipoIngresso="
                 + tipoIngresso + "]";
     }
 
@@ -32,8 +32,8 @@ public class Ingresso {
         return cliente;
     }
 
-    public Sessao getSessao() {
-        return sessao;
+    public Autor getSessao() {
+        return autor;
     }
 
     public TipoIngresso getTipoIngresso() {

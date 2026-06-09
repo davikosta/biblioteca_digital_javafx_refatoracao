@@ -9,8 +9,8 @@ import java.util.Locale;
 import java.util.function.UnaryOperator;
 
 import br.edu.ifba.saj.ads.poo.data.Cinema;
-import br.edu.ifba.saj.ads.poo.model.Filme;
-import br.edu.ifba.saj.ads.poo.model.Sessao;
+import br.edu.ifba.saj.ads.poo.model.Livro;
+import br.edu.ifba.saj.ads.poo.model.Autor;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,7 +34,7 @@ public class SessaoController {
     private Spinner<Integer> dtHorarioMinuto;
 
     @FXML
-    private ChoiceBox<Filme> slFilme;
+    private ChoiceBox<Livro> slFilme;
 
     @FXML
     private TextField txQuantidade;
@@ -42,28 +42,28 @@ public class SessaoController {
     @FXML
     private TextField txValor;
 
-    private Filme filmeSelecionado;
+    private Livro livroSelecionado;
 
     @FXML
     private void initialize() {
-        slFilme.getItems().addAll(Cinema.filmes);
+        slFilme.getItems().addAll(Cinema.livros);
         // quando um filme for selecionado na lista, vai guardar esse filme na variaval
         // "filmeSelecionado"
         slFilme.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                filmeSelecionado = newValue;
+                livroSelecionado = newValue;
             }
         });
         // Define qual a informação do filme vai ser exibida na lista
-        slFilme.setConverter(new StringConverter<Filme>() {
+        slFilme.setConverter(new StringConverter<Livro>() {
             @Override
-            public String toString(Filme filme) {
+            public String toString(Livro livro) {
                 // Define o texto que o usuário vai ver na tela
-                return filme == null ? "" : filme.getTitulo();
+                return livro == null ? "" : livro.getTitulo();
             }
 
             @Override
-            public Filme fromString(String string) {
+            public Livro fromString(String string) {
                 // Não é necessário implementar para ChoiceBox padrão (pode retornar null)
                 return null;
             }
@@ -145,7 +145,7 @@ public class SessaoController {
 
     @FXML
     void salvar(ActionEvent event) throws NumberFormatException, ParseException {
-        getFilmeSelecionado().addSessao(new Sessao(getHorarioSelecionado(), filmeSelecionado, Integer.valueOf(txQuantidade.getText()), NumberFormat.getNumberInstance(Locale.of("pt", "BR")).parse(txValor.getText()).floatValue()));
+        getFilmeSelecionado().addSessao(new Autor(getHorarioSelecionado(), livroSelecionado, Integer.valueOf(txQuantidade.getText()), NumberFormat.getNumberInstance(Locale.of("pt", "BR")).parse(txValor.getText()).floatValue()));
 
         new Alert(AlertType.INFORMATION,
                 String.format("Horario filme %1$td/%1$tm/%1$tY %1$tH:%1$tM ", getHorarioSelecionado())).showAndWait();
@@ -156,8 +156,8 @@ public class SessaoController {
 
     }
 
-    public Filme getFilmeSelecionado() {
-        return filmeSelecionado;
+    public Livro getFilmeSelecionado() {
+        return livroSelecionado;
     }
 
 }

@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 import br.edu.ifba.saj.ads.poo.data.Cinema;
 import br.edu.ifba.saj.ads.poo.model.Cliente;
-import br.edu.ifba.saj.ads.poo.model.Filme;
+import br.edu.ifba.saj.ads.poo.model.Livro;
 import br.edu.ifba.saj.ads.poo.model.Ingresso;
-import br.edu.ifba.saj.ads.poo.model.Sessao;
+import br.edu.ifba.saj.ads.poo.model.Autor;
 import br.edu.ifba.saj.ads.poo.model.TipoIngresso;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,57 +18,57 @@ import javafx.util.StringConverter;
 public class IngressoController {
 
     @FXML
-    private ChoiceBox<Filme> slFilme;
+    private ChoiceBox<Livro> slFilme;
 
     @FXML
-    private ChoiceBox<Sessao> slHorarios;
+    private ChoiceBox<Autor> slHorarios;
 
     @FXML
     private ChoiceBox<TipoIngresso> slTipoIngresso;
 
-    private Filme filmeSelecionado;
-    private Sessao sessaoSelecionada;
+    private Livro livroSelecionado;
+    private Autor autorSelecionada;
     // private TipoIngresso tipoIngressoSelecionado;
 
     @FXML
     private void initialize() {
-        slFilme.getItems().addAll(Cinema.filmes);
+        slFilme.getItems().addAll(Cinema.livros);
         slTipoIngresso.getItems().addAll(TipoIngresso.values());
 
         slFilme.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                filmeSelecionado = newValue;
-                slHorarios.getItems().addAll(filmeSelecionado.getSessoes());
+                livroSelecionado = newValue;
+                slHorarios.getItems().addAll(livroSelecionado.getSessoes());
             }
         });
 
-        slFilme.setConverter(new StringConverter<Filme>() {
+        slFilme.setConverter(new StringConverter<Livro>() {
             @Override
-            public String toString(Filme filme) {
-                return filme == null ? "" : filme.getTitulo();
+            public String toString(Livro livro) {
+                return livro == null ? "" : livro.getTitulo();
             }
 
             @Override
-            public Filme fromString(String string) {
+            public Livro fromString(String string) {
                 return null;
             }
         });
 
         slHorarios.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                sessaoSelecionada = newValue;
+                autorSelecionada = newValue;
             }
         });
 
-        slHorarios.setConverter(new StringConverter<Sessao>() {
+        slHorarios.setConverter(new StringConverter<Autor>() {
             @Override
-            public String toString(Sessao sessao) {
-                return sessao == null ? ""
-                        : String.format("%1$td/%1$tm/%1$tY %1$tH:%1$tM ", sessao.getHorario());
+            public String toString(Autor autor) {
+                return autor == null ? ""
+                        : String.format("%1$td/%1$tm/%1$tY %1$tH:%1$tM ", autor.getHorario());
             }
 
             @Override
-            public Sessao fromString(String string) {
+            public Autor fromString(String string) {
                 return null;
             }
         });
@@ -76,7 +76,7 @@ public class IngressoController {
 
     @FXML
     void salvar(ActionEvent event) {
-        Ingresso ingresso = sessaoSelecionada.venderIngresso(
+        Ingresso ingresso = autorSelecionada.venderIngresso(
                 new Cliente("Leandro", "01234567891", LocalDate.of(1983, 6, 4)),
                 slTipoIngresso.getSelectionModel().getSelectedItem());
         if (ingresso != null) {
@@ -93,12 +93,12 @@ public class IngressoController {
 
     }
 
-    public Filme getFilmeSelecionado() {
-        return filmeSelecionado;
+    public Livro getFilmeSelecionado() {
+        return livroSelecionado;
     }
 
-    public Sessao getSessaoSelecionada() {
-        return sessaoSelecionada;
+    public Autor getSessaoSelecionada() {
+        return autorSelecionada;
     }
 
 }

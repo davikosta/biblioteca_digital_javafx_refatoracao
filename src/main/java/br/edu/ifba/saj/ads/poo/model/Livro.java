@@ -1,12 +1,9 @@
 package br.edu.ifba.saj.ads.poo.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Filme {
+public class Livro {
     private String titulo;
 
-    public Filme(String titulo, float duracao) {
+    public Livro(String titulo, float duracao) {
         this.titulo = titulo;
     }
 

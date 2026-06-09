@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.function.UnaryOperator;
 
 import br.edu.ifba.saj.ads.poo.data.Cinema;
-import br.edu.ifba.saj.ads.poo.model.Filme;
+import br.edu.ifba.saj.ads.poo.model.Livro;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -30,13 +30,13 @@ public class FilmeController {
     private TextField txNome;
 
     @FXML
-    private TableColumn<Filme, Float> clmDuracao;
+    private TableColumn<Livro, Float> clmDuracao;
 
     @FXML
-    private TableColumn<Filme, String> clmNome;
+    private TableColumn<Livro, String> clmNome;
 
     @FXML
-    private TableView<Filme> tbFilmes;
+    private TableView<Livro> tbFilmes;
 
     @FXML
     private void initialize() {
@@ -79,7 +79,7 @@ public class FilmeController {
     }
 
     public void loadFilmesList() {
-        tbFilmes.setItems(FXCollections.observableList(Cinema.filmes));
+        tbFilmes.setItems(FXCollections.observableList(Cinema.livros));
     }
 
     @FXML
@@ -91,10 +91,10 @@ public class FilmeController {
                 (Objects.nonNull(txNome.getText())
                         && !txNome.getText().isEmpty()
                         && !txNome.getText().isEmpty())) {
-            Filme novoFilme = new Filme(txNome.getText(),
+            Livro novoLivro = new Livro(txNome.getText(),
                     NumberFormat.getNumberInstance(Locale.of("pt", "BR")).parse(txDuracao.getText()).floatValue());
-            Cinema.filmes.add(novoFilme);
-            new Alert(AlertType.INFORMATION, String.format("Novo filme %s cadastrado", novoFilme.getTitulo()))
+            Cinema.livros.add(novoLivro);
+            new Alert(AlertType.INFORMATION, String.format("Novo filme %s cadastrado", novoLivro.getTitulo()))
                     .showAndWait();
 
         } else {

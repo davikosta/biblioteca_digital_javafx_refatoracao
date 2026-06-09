@@ -3,9 +3,9 @@ package br.edu.ifba.saj.ads.poo.data;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifba.saj.ads.poo.model.Filme;
+import br.edu.ifba.saj.ads.poo.model.Livro;
 
 public class Cinema {
-    public static List<Filme> filmes = new ArrayList<>();
+    public static List<Livro> livros = new ArrayList<>();
     
 }
