@@ -4,14 +4,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-
 <BorderPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.ads.poo.IndexController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="35.0" spacing="10.0" style="-fx-background-color: olive;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#abrirCadastarFilme" prefHeight="26.0" prefWidth="110.0" text="Cadastrar Filme" />
-            <Button mnemonicParsing="false" onAction="#abrirCadastarSessao" prefWidth="110.0" text="Cadastrar Sessão" />
-            <Button mnemonicParsing="false" onAction="#abrirVenderIngresso" prefWidth="110.0" text="Vender Ingresso" />
+            <Button mnemonicParsing="false" onAction="#abrirCadastrarLivro" prefHeight="26.0" prefWidth="130.0" text="Cadastrar Livro" />
+            <Button mnemonicParsing="false" onAction="#abrirCadastrarAutor" prefHeight="26.0" prefWidth="130.0" text="Cadastrar Autor" />
+            <Button mnemonicParsing="false" onAction="#abrirCadastrarCategoria" prefHeight="26.0" prefWidth="130.0" text="Cadastrar Categoria" />
          </children>
       </HBox>
    </bottom>
