@@ -3,7 +3,7 @@ package br.edu.ifba.saj.ads.poo;
 import java.time.LocalDate;
 
 import br.edu.ifba.saj.ads.poo.data.Cinema;
-import br.edu.ifba.saj.ads.poo.model.Cliente;
+import br.edu.ifba.saj.ads.poo.model.Categoria;
 import br.edu.ifba.saj.ads.poo.model.Livro;
 import br.edu.ifba.saj.ads.poo.model.Ingresso;
 import br.edu.ifba.saj.ads.poo.model.Autor;
@@ -77,7 +77,7 @@ public class IngressoController {
     @FXML
     void salvar(ActionEvent event) {
         Ingresso ingresso = autorSelecionada.venderIngresso(
-                new Cliente("Leandro", "01234567891", LocalDate.of(1983, 6, 4)),
+                new Categoria("Leandro", "01234567891", LocalDate.of(1983, 6, 4)),
                 slTipoIngresso.getSelectionModel().getSelectedItem());
         if (ingresso != null) {
 
