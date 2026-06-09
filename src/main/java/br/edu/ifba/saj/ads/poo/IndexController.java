@@ -20,6 +20,15 @@ public class IndexController {
     }
 
     @FXML
+    public void abrirPesquisarLivros(ActionEvent event) {
+        try {
+            pane.setCenter(FXMLLoader.load(getClass().getResource("Pesquisa.fxml")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     public void abrirCadastrarAutor(ActionEvent event) {
         try {
             pane.setCenter(FXMLLoader.load(getClass().getResource("Autor.fxml")));

@@ -11,6 +11,7 @@
             <Button mnemonicParsing="false" onAction="#abrirCadastrarLivro" prefHeight="26.0" prefWidth="130.0" text="Cadastrar Livro" />
             <Button mnemonicParsing="false" onAction="#abrirCadastrarAutor" prefHeight="26.0" prefWidth="130.0" text="Cadastrar Autor" />
             <Button mnemonicParsing="false" onAction="#abrirCadastrarCategoria" prefHeight="26.0" prefWidth="130.0" text="Cadastrar Categoria" />
+            <Button mnemonicParsing="false" onAction="#abrirPesquisarLivros" prefHeight="26.0" prefWidth="130.0" text="Pesquisar" />
          </children>
       </HBox>
    </bottom>
