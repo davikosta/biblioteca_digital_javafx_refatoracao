@@ -35,7 +35,7 @@ public class Livro {
         return List.copyOf(categorias);
     }
 
-    
+
 
     @Override
     public int hashCode() {

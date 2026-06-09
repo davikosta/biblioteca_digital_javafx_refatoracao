@@ -6,7 +6,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 
-import br.edu.ifba.saj.ads.poo.data.Cinema;
+import br.edu.ifba.saj.ads.poo.data.Biblioteca;
 import br.edu.ifba.saj.ads.poo.model.Livro;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -79,7 +79,7 @@ public class FilmeController {
     }
 
     public void loadFilmesList() {
-        tbFilmes.setItems(FXCollections.observableList(Cinema.livros));
+        tbFilmes.setItems(FXCollections.observableList(Biblioteca.livros));
     }
 
     @FXML
@@ -93,7 +93,7 @@ public class FilmeController {
                         && !txNome.getText().isEmpty())) {
             Livro novoLivro = new Livro(txNome.getText(),
                     NumberFormat.getNumberInstance(Locale.of("pt", "BR")).parse(txDuracao.getText()).floatValue());
-            Cinema.livros.add(novoLivro);
+            Biblioteca.livros.add(novoLivro);
             new Alert(AlertType.INFORMATION, String.format("Novo filme %s cadastrado", novoLivro.getTitulo()))
                     .showAndWait();
 

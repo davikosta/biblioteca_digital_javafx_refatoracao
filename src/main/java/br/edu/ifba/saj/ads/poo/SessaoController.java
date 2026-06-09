@@ -8,7 +8,7 @@ import java.time.LocalTime;
 import java.util.Locale;
 import java.util.function.UnaryOperator;
 
-import br.edu.ifba.saj.ads.poo.data.Cinema;
+import br.edu.ifba.saj.ads.poo.data.Biblioteca;
 import br.edu.ifba.saj.ads.poo.model.Livro;
 import br.edu.ifba.saj.ads.poo.model.Autor;
 import javafx.application.Platform;
@@ -46,7 +46,7 @@ public class SessaoController {
 
     @FXML
     private void initialize() {
-        slFilme.getItems().addAll(Cinema.livros);
+        slFilme.getItems().addAll(Biblioteca.livros);
         // quando um filme for selecionado na lista, vai guardar esse filme na variaval
         // "filmeSelecionado"
         slFilme.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
