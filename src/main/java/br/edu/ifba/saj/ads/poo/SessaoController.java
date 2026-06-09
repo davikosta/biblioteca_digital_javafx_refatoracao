@@ -1,6 +1,5 @@
 package br.edu.ifba.saj.ads.poo;
 
-import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
@@ -60,7 +59,7 @@ public class SessaoController {
             @Override
             public String toString(Filme filme) {
                 // Define o texto que o usuário vai ver na tela
-                return filme == null ? "" : filme.getNome();
+                return filme == null ? "" : filme.getTitulo();
             }
 
             @Override

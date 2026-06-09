@@ -1,6 +1,5 @@
 package br.edu.ifba.saj.ads.poo;
 
-import java.io.IOException;
 import java.time.LocalDate;
 
 import br.edu.ifba.saj.ads.poo.data.Cinema;
@@ -46,7 +45,7 @@ public class IngressoController {
         slFilme.setConverter(new StringConverter<Filme>() {
             @Override
             public String toString(Filme filme) {
-                return filme == null ? "" : filme.getNome();
+                return filme == null ? "" : filme.getTitulo();
             }
 
             @Override
@@ -85,7 +84,7 @@ public class IngressoController {
             new Alert(AlertType.INFORMATION, String.format(
                     "Ingresso %s vendido para o filme %s na sessão de %3$td/%3$tm/%3$tY %3$tH:%3$tM. Ingressos disponíveis %4$d ",
                     ingresso.getTipoIngresso(),
-                    ingresso.getSessao().getFilme().getNome(),
+                    ingresso.getSessao().getFilme().getTitulo(),
                     ingresso.getSessao().getHorario(),
                     ingresso.getSessao().quantidadeIngressosDisponiveis())).showAndWait();
         } else {

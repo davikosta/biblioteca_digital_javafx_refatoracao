@@ -4,53 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Filme {
-    private List<Sessao> sessoes;
-    private String nome;
-    private float duracao;
+    private String titulo;
 
-    public Filme(String nome, float duracao) {
-        this.nome = nome;
-        this.duracao = duracao;
-        this.sessoes = new ArrayList<>();
+    public Filme(String titulo, float duracao) {
+        this.titulo = titulo;
     }
 
-    public void addSessao(Sessao sessao) {
-        if(!this.equals(sessao.getFilme())){
-            sessao.setFilme(this);
-        }
-        if(!sessoes.contains(sessao)){
-            sessoes.add(sessao);
-        }
-
-    }
-
-    public List<Sessao> getSessoes() {
-        return List.copyOf(sessoes);
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public float getDuracao() {
-        return duracao;
+    public String getTitulo() {
+        return titulo;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-        result = prime * result + Float.floatToIntBits(duracao);
+        result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
         return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Filme f){
-            return f.getNome().equals(nome) && f.getDuracao() == duracao;            
-        }
-        return false;
-    }   
+        if (this == obj) {return true;}
+        if (obj == null) {return false;}
+        if (getClass() != obj.getClass()) {return false;}
+        Livro other = (Livro) obj;
+        if (titulo == null) {
+            if (other.titulo != null) {return false;}
+            return false;
+        } else if (!titulo.equals(other.titulo)) {return false;}
+        return true;
+    }
 
 }

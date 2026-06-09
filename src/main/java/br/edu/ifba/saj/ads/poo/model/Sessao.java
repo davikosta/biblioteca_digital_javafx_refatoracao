@@ -66,7 +66,7 @@ public class Sessao {
 
     @Override
     public String toString() {
-        return "Sessao [horario=" + horario + ", filme=" + filme.getNome() + ", quantidadeIngressosDisponiveis()="
+        return "Sessao [horario=" + horario + ", filme=" + filme.getTitulo() + ", quantidadeIngressosDisponiveis()="
                 + quantidadeIngressosDisponiveis() + "]";
     }    
 

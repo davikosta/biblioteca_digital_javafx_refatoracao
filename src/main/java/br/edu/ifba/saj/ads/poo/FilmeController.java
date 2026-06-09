@@ -94,7 +94,7 @@ public class FilmeController {
             Filme novoFilme = new Filme(txNome.getText(),
                     NumberFormat.getNumberInstance(Locale.of("pt", "BR")).parse(txDuracao.getText()).floatValue());
             Cinema.filmes.add(novoFilme);
-            new Alert(AlertType.INFORMATION, String.format("Novo filme %s cadastrado", novoFilme.getNome()))
+            new Alert(AlertType.INFORMATION, String.format("Novo filme %s cadastrado", novoFilme.getTitulo()))
                     .showAndWait();
 
         } else {
